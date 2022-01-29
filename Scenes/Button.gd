@@ -12,7 +12,7 @@ func _ready():
 	pass
 
 func _on_Button_body_entered(body):
-	pass
+	emit_signal("Body Entered")
 	
 func _pressed():
 	timer.set_wait_time(1)
