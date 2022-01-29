@@ -6,7 +6,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 311, 473 )
+position = Vector2( 280, 473 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
