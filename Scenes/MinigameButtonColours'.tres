@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=2]
+
+[resource]
+/colors/green = Color( 0.0705882, 0.796078, 0.0823529, 1 )
+/colors/red = Color( 1, 0, 0, 1 )
