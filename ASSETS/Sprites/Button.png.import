@@ -15,6 +15,7 @@ dest_files=[ "res://.import/Button.png-e9f5d7bd908135b68d7da63b8e570209.stex" ]
 [params]
 
 compress/mode=0
+compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
