@@ -19,10 +19,10 @@ position = Vector2( 0, -35 )
 shape = SubResource( 1 )
 
 [node name="Display" type="Label" parent="."]
-margin_left = -18.0
-margin_top = -41.0
-margin_right = 22.0
-margin_bottom = -27.0
+margin_left = -4.0
+margin_top = -38.0
+margin_right = 36.0
+margin_bottom = -24.0
 text = "9"
 script = ExtResource( 3 )
 __meta__ = {
@@ -30,6 +30,30 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Prompt" type="Label" parent="."]
+visible = false
+margin_left = -43.0
+margin_top = -91.0
+margin_right = 45.0
+margin_bottom = -77.0
+text = "Press interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pressed" type="Label" parent="."]
+visible = false
+margin_left = -60.0
+margin_top = -76.0
+margin_right = 62.0
+margin_bottom = -62.0
+text = "Pressed the button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="." to="." method="_on_Button_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Button_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

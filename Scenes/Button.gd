@@ -18,9 +18,12 @@ func _process(delta):
 	if can_press:
 		if Input.is_action_pressed("ui_accept"):
 			been_pressed = true;
+			pressed()
 	if been_pressed:
 		$Pressed.show()
 		$Prompt.hide()
+	else:
+		$Display.show()	
 
 func _on_Button_body_entered(body):
 	if !been_pressed:
@@ -31,11 +34,17 @@ func _on_Button_body_exited(body):
 	$Prompt.hide()
 	can_press = false
 	
-func _pressed():
+func pressed():
+	timer.set_wait_time(3)
+	$Display.hide()
 	timer.set_wait_time(1)
-	timer.start()
+	been_pressed = false
+	DisplayValue = 9
 
 func _on_Timer_timeout():
 	if DisplayValue > 0:
 		DisplayValue -= 1
+	if !been_pressed:
+		$Display.show()	
+		timer.start()
 

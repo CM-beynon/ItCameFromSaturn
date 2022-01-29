@@ -8,4 +8,6 @@
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
 
 [node name="Button" parent="." instance=ExtResource( 1 )]
-position = Vector2( 319, 421 )
+position = Vector2( 320, 415 )
+
+[connection signal="body_shape_exited" from="Button" to="Button" method="_on_Button_body_shape_exited"]
