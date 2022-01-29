@@ -13,21 +13,10 @@ var state = States.FLOOR
 var velocity = Vector2(0,0)
 
 func _physics_process(delta):  
-	print(velocity)
-	""""
-	move_left_or_right()
-	if Input.is_action_pressed("ui_up"):
-		velocity.y = JUMP
-	else:
-		velocity.y += 30
-	move()
-	"""
 	
 	match state:
 		
 		States.FLOOR:
-			
-			
 			move_left_or_right()
 			if Input.is_action_pressed("ui_up"):
 				velocity.y = JUMP
@@ -35,18 +24,13 @@ func _physics_process(delta):
 			move()
 			if !is_on_floor():
 				state = States.AIR
-				continue
-			
 			
 		States.AIR:
-			
 			move_left_or_right()
-			velocity.y += 30
+			velocity.y += GRAVITY
 			move()
 			if is_on_floor():
 				state = States.FLOOR
-				continue
-			
 
 # Calculates movement and collisions from the velocity vector
 func move():
