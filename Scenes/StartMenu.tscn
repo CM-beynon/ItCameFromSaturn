@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://ASSETS/Sprites/startConcept.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/Sprites/quitConcept.png" type="Texture" id=3]
+[ext_resource path="res://ASSETS/Sprites/BackgroundConcept.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Start:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 2 ) ]
+}
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 156.0
+margin_top = 18.0
+margin_right = 866.0
+margin_bottom = 444.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 406.0
+margin_top = 456.0
+margin_right = 604.0
+margin_bottom = 598.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartBackground" type="Sprite" parent="."]
+position = Vector2( 508, 302 )
+texture = ExtResource( 4 )
+
+[node name="Start" type="Sprite" parent="."]
+position = Vector2( 517, 243 )
+scale = Vector2( 0.675987, 0.675987 )
+texture = ExtResource( 2 )
+
+[node name="Quit" type="Sprite" parent="."]
+position = Vector2( 510, 524 )
+scale = Vector2( 0.164474, 0.164474 )
+texture = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -54.0
+margin_top = -18.0
+margin_right = 1054.0
+margin_bottom = 642.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fade = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

@@ -2,6 +2,7 @@ extends Area2D
 
 var can_press
 var been_pressed = false
+var timer_cooldown = 3
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -35,16 +36,21 @@ func _on_Button_body_exited(body):
 	can_press = false
 	
 func pressed():
-	timer.set_wait_time(3)
 	$Display.hide()
-	timer.set_wait_time(1)
-	been_pressed = false
-	DisplayValue = 9
+	been_pressed = true
 
 func _on_Timer_timeout():
 	if DisplayValue > 0:
 		DisplayValue -= 1
 	if !been_pressed:
 		$Display.show()	
-		timer.start()
+	else:
+		if timer_cooldown > 0:
+			timer_cooldown -= 1
+		else:
+			DisplayValue = 9
+			$Display.show()
+			timer_cooldown = 3
+			
+
 
