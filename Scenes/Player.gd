@@ -14,7 +14,7 @@ enum States {FLOOR, AIR, CROUCH}
 var state = States.FLOOR
 var velocity = Vector2(0,0)
 var active_animation = false
-var winTime = 3
+var winTime = 30
 
 func _ready():
 	$Survive.set_wait_time(1)
