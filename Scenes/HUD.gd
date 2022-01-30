@@ -17,7 +17,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if button1:
-		$Label.text = String(get_node(button1).DisplayValue)
+		var button1_instance = get_node(button1)
+		if button1_instance.timer_cooldown == 3:
+			$Label.text = String(button1_instance.DisplayValue)
+		else:
+			$Label.text = ""
 	if button2:
 		$Label2.text = String(get_node(button2).DisplayValue)
 	if button3:

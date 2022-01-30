@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var WAIT_TIME = 0.01
 
@@ -23,6 +23,8 @@ onready var elementNodes = [
 ]
 
 var curActive = [-1, -1]
+
+signal minigame_completed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -89,4 +91,5 @@ func hasWon():
 	return true
 
 func winState():
+	emit_signal("minigame_completed")
 	get_node("Win Message").visible = true

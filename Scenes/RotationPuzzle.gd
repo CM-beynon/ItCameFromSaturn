@@ -3,8 +3,16 @@ extends CanvasLayer
 var GRID_SIZE = 3
 var rng = RandomNumberGenerator.new()
 var WINDOW_HEIGHT = 600
+var dir = "res://ASSETS/Sprites/RotationPuzzle/"
+var imageName = "people"
 
 signal minigame_completed
+
+var pieces = [
+	["TL", "TC", "TR"],
+	["CL", "C", "CR"],
+	["BL", "BC", "BR"]
+]
 
 var imageState = [
 	[0, 0, 0],
@@ -20,6 +28,7 @@ onready var imageNodes = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	loadPieces()
 	rng.randomize()
 	for row in range(GRID_SIZE):
 		for col in range(GRID_SIZE):
@@ -28,12 +37,10 @@ func _ready():
 			curNode.set_scale(WINDOW_HEIGHT * inverse(curNode.rect_size) / GRID_SIZE)
 			curNode.set_global_position(Vector2(200*col-50, 200*row-50))
 			imageState[row][col] = rng.randi_range(0, GRID_SIZE)
-			#imageState[row][col] = 1
 			curNode.set_rotation_degrees(90 * imageState[row][col])
 
 
 func _on_piece_pressed(row, col):
-	print(row, col)
 	var curNode = imageNodes[row][col]
 	
 	imageState[row][col] += 1
@@ -42,6 +49,12 @@ func _on_piece_pressed(row, col):
 	if isWinner():
 		winState()
 
+func loadPieces():
+	for row in range(GRID_SIZE):
+		for col in range(GRID_SIZE):
+			var curNode = imageNodes[row][col]
+			var texture = load(dir + imageName + "_" + pieces[row][col] + ".png")
+			curNode.set_normal_texture(texture)
 
 func isWinner():
 	for row in range(GRID_SIZE):
