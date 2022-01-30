@@ -1,0 +1,251 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://ASSETS/Sprites/Circuit/element.png" type="Texture" id=1]
+[ext_resource path="res://ASSETS/Sprites/Circuit/under_circularPath.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/Sprites/Circuit/progress_circularPath.png" type="Texture" id=3]
+[ext_resource path="res://ASSETS/Sprites/Circuit/circle.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Element.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Circuit.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/ActiveTimeIndicator.gd" type="Script" id=7]
+[ext_resource path="res://ASSETS/Sprites/Circuit/triangle.png" type="Texture" id=8]
+[ext_resource path="res://ASSETS/Sprites/Circuit/star.png" type="Texture" id=9]
+[ext_resource path="res://ASSETS/Sprites/Circuit/lightning.png" type="Texture" id=10]
+
+[node name="Circuit" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Win Message" type="Label" parent="."]
+visible = false
+margin_left = 450.0
+margin_top = 276.0
+margin_right = 516.0
+margin_bottom = 290.0
+text = "STAN LOONA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Circle1" type="TextureButton" parent="."]
+margin_left = -158.0
+margin_top = -159.0
+margin_right = 383.0
+margin_bottom = 382.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 270, 270 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveTimeIndicator" type="TextureProgress" parent="Circle1"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Circle1"]
+
+[node name="Circle2" type="TextureButton" parent="."]
+margin_left = 12.0
+margin_top = -162.0
+margin_right = 553.0
+margin_bottom = 379.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 270, 270 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveTimeIndicator" type="TextureProgress" parent="Circle2"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Circle2"]
+
+[node name="Triangle1" type="TextureButton" parent="."]
+margin_left = -156.0
+margin_top = 12.0
+margin_right = 385.0
+margin_bottom = 553.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 270, 270 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 8 )
+texture_disabled = ExtResource( 8 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveTimeIndicator" type="TextureProgress" parent="Triangle1"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Triangle1"]
+
+[node name="Triangle2" type="TextureButton" parent="."]
+margin_left = 13.0
+margin_top = 13.0
+margin_right = 554.0
+margin_bottom = 554.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 270, 270 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 8 )
+texture_disabled = ExtResource( 8 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveTimeIndicator" type="TextureProgress" parent="Triangle2"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Triangle2"]
+
+[node name="Star1" type="TextureButton" parent="."]
+margin_left = 438.5
+margin_top = -140.5
+margin_right = 979.5
+margin_bottom = 400.5
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 270, 270 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 9 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveTimeIndicator" type="TextureProgress" parent="Star1"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Star1"]
+
+[node name="Star2" type="TextureButton" parent="."]
+margin_left = 607.5
+margin_top = -139.5
+margin_right = 1148.5
+margin_bottom = 401.5
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 270, 270 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 9 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveTimeIndicator" type="TextureProgress" parent="Star2"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Star2"]
+
+[node name="Lightning1" type="TextureButton" parent="."]
+margin_left = 450.0
+margin_top = 78.0
+margin_right = 991.0
+margin_bottom = 619.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 270, 270 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 10 )
+texture_disabled = ExtResource( 10 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveTimeIndicator" type="TextureProgress" parent="Lightning1"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Lightning1"]
+
+[node name="Lightning2" type="TextureButton" parent="."]
+margin_left = 606.0
+margin_top = 83.0
+margin_right = 1147.0
+margin_bottom = 624.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 270, 270 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 10 )
+texture_disabled = ExtResource( 10 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveTimeIndicator" type="TextureProgress" parent="Lightning2"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Lightning2"]
+
+[connection signal="pressed" from="Circle1" to="." method="_on_element_pressed" binds= [ 0, 1 ]]
+[connection signal="timeout" from="Circle1/Timer" to="Circle1" method="_on_Timer_timeout" binds= [ 0, 1 ]]
+[connection signal="pressed" from="Circle2" to="." method="_on_element_pressed" binds= [ 0, 2 ]]
+[connection signal="timeout" from="Circle2/Timer" to="Circle2" method="_on_Timer_timeout" binds= [ 0, 2 ]]
+[connection signal="pressed" from="Triangle1" to="." method="_on_element_pressed" binds= [ 1, 1 ]]
+[connection signal="timeout" from="Triangle1/Timer" to="Triangle1" method="_on_Timer_timeout" binds= [ 1, 1 ]]
+[connection signal="pressed" from="Triangle2" to="." method="_on_element_pressed" binds= [ 1, 2 ]]
+[connection signal="timeout" from="Triangle2/Timer" to="Triangle2" method="_on_Timer_timeout" binds= [ 1, 2 ]]
+[connection signal="pressed" from="Star1" to="." method="_on_element_pressed" binds= [ 2, 1 ]]
+[connection signal="timeout" from="Star1/Timer" to="Star1" method="_on_Timer_timeout" binds= [ 2, 1 ]]
+[connection signal="pressed" from="Star2" to="." method="_on_element_pressed" binds= [ 2, 2 ]]
+[connection signal="timeout" from="Star2/Timer" to="Star2" method="_on_Timer_timeout" binds= [ 1, 2 ]]
+[connection signal="pressed" from="Lightning1" to="." method="_on_element_pressed" binds= [ 3, 1 ]]
+[connection signal="timeout" from="Lightning1/Timer" to="Lightning1" method="_on_Timer_timeout" binds= [ 3, 1 ]]
+[connection signal="pressed" from="Lightning2" to="." method="_on_element_pressed" binds= [ 3, 2 ]]
+[connection signal="timeout" from="Lightning2/Timer" to="Lightning2" method="_on_Timer_timeout" binds= [ 3, 2 ]]
