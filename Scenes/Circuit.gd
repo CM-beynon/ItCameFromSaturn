@@ -52,6 +52,8 @@ func _on_element_pressed(shape, id):
 		curActive = [shape, id-1]
 
 func shuffleElements():
+	rng.randomize()
+	randomize()
 	var offset = -202.5
 	var pos = range(8)
 	pos.shuffle()

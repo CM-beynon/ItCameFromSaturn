@@ -129,13 +129,13 @@ position = Vector2( 0, 32 )
 shape = SubResource( 1 )
 
 [node name="CheckCeilingLeft" type="RayCast2D" parent="."]
-position = Vector2( 24, 0 )
+position = Vector2( 24, 8 )
 rotation = 3.14159
 enabled = true
 cast_to = Vector2( 0, 10 )
 
 [node name="CheckCeilingRight" type="RayCast2D" parent="."]
-position = Vector2( -24, 0 )
+position = Vector2( -24, 8 )
 rotation = 3.14159
 enabled = true
 cast_to = Vector2( 0, 10 )
