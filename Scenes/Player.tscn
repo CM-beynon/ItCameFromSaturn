@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ASSETS/Sprites/PlayerSpriteSaturn-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://ASSETS/Audio/Crunchy.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 48.0579 )
+extents = Vector2( 32, 32 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "Crouch"
@@ -124,20 +125,20 @@ texture = ExtResource( 1 )
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 16.0579 )
+position = Vector2( 0, 32 )
 shape = SubResource( 1 )
 
 [node name="CheckCeilingLeft" type="RayCast2D" parent="."]
-position = Vector2( 32, -32 )
+position = Vector2( 24, 0 )
 rotation = 3.14159
 enabled = true
-cast_to = Vector2( 0, 3 )
+cast_to = Vector2( 0, 10 )
 
 [node name="CheckCeilingRight" type="RayCast2D" parent="."]
-position = Vector2( -32, -32 )
+position = Vector2( -24, 0 )
 rotation = 3.14159
 enabled = true
-cast_to = Vector2( 0, 3 )
+cast_to = Vector2( 0, 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crouch = SubResource( 5 )
@@ -147,5 +148,8 @@ anims/Idle = SubResource( 4 )
 anims/RESET = SubResource( 2 )
 anims/Stand = SubResource( 6 )
 anims/Walk = SubResource( 3 )
+
+[node name="Crunchy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
