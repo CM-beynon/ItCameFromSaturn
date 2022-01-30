@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/FinalSpaceshipLevel.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/TestButtonLevel.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Circuit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/DrawingMiniGame.tscn" type="PackedScene" id=8]
 
 [node name="TestButtonLevel" type="Node2D"]
 script = ExtResource( 5 )
@@ -14,21 +15,26 @@ script = ExtResource( 5 )
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
 
 [node name="Button" parent="Node2D" instance=ExtResource( 1 )]
-position = Vector2( 426, 477 )
+position = Vector2( 433, 479 )
 minigame = ExtResource( 3 )
 
 [node name="Button2" parent="Node2D" instance=ExtResource( 1 )]
-position = Vector2( 1277, 287 )
+position = Vector2( 1372, -417 )
 minigame = ExtResource( 4 )
 
 [node name="Button3" parent="Node2D" instance=ExtResource( 1 )]
-position = Vector2( 2002, 798 )
+position = Vector2( 1601, 1055 )
 minigame = ExtResource( 7 )
+
+[node name="Button4" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 2679, 480 )
+minigame = ExtResource( 8 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 button1 = NodePath("../Node2D/Button")
 button2 = NodePath("../Node2D/Button2")
 button3 = NodePath("../Node2D/Button3")
+button4 = NodePath("../Node2D/Button4")
 
 [connection signal="body_shape_exited" from="Node2D/Button" to="Node2D/Button" method="_on_Button_body_shape_exited"]
 [connection signal="pressed_button" from="Node2D/Button" to="." method="_on_Button_pressed_button"]
