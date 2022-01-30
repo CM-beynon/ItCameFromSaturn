@@ -1,10 +1,13 @@
 extends Area2D
 
+export (PackedScene) var minigame
+
 var can_press
 var been_pressed = false
 var timer_cooldown = 3
 
-signal pressed_button
+signal pressed_button(new_scene)
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -37,21 +40,19 @@ func _on_Button_body_exited(body):
 	can_press = false
 	
 func pressed():
-	var _minigame = null
-	
-	been_pressed = true;
-	
-	_minigame = get_node("Minigame")
-	
-	if (_minigame):
+	if (minigame):
+		# var game = minigame.instance()
+		# add_child(game)
+		emit_signal("pressed_button", minigame.get_resource_path())
 		$Timer.stop()
-		_minigame.show()
-		
-	
-	emit_signal("pressed_button")
+	else:
+		emit_signal("pressed_button", null)
+		reset_button()
+
+func reset_button():
+	$Timer.start()
 	$Display.hide()
 	been_pressed = true
-
 
 func _on_Timer_timeout():
 	if DisplayValue > 0:
@@ -68,5 +69,3 @@ func _on_Timer_timeout():
 			been_pressed = false
 			timer_cooldown = 3
 			
-
-
