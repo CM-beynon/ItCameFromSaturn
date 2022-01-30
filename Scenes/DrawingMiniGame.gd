@@ -1,4 +1,6 @@
-extends Node2D
+extends CanvasLayer
+
+signal minigame_completed
 
 func _ready():
 	pass # Replace with function body.
@@ -11,4 +13,5 @@ func _process(delta):
 
 func _on_Button_pressed():
 	print("you win the game :)")
+	emit_signal("minigame_completed")
 	pass # Replace with function body.
