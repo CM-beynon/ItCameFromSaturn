@@ -1,8 +1,10 @@
-extends Node2D
+extends CanvasLayer
 
 var GRID_SIZE = 3
 var rng = RandomNumberGenerator.new()
 var WINDOW_HEIGHT = 600
+
+signal minigame_completed
 
 var imageState = [
 	[0, 0, 0],
@@ -50,6 +52,7 @@ func isWinner():
 
 
 func winState():
+	emit_signal("minigame_completed")
 	get_node("Win Message").visible = true
 
 

@@ -1,12 +1,12 @@
-extends Node2D
+extends CanvasLayer
 
+signal minigame_completed
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 var numButtonPressed = 0
 const BUTTON_NUM = 5
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,5 +24,6 @@ func _buttonPressed(button_pressed):
 		if numButtonPressed  > 0:
 			numButtonPressed -= 1
 	if numButtonPressed == BUTTON_NUM:
+		emit_signal("minigame_completed")
 		print("you win the game :)")
 	print(numButtonPressed)
