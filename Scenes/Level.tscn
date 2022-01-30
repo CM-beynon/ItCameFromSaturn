@@ -16,6 +16,9 @@ position = Vector2( 280, 472 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+
+[node name="Survive" type="Timer" parent="Player"]
+
 [node name="Node2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1, 0 )
 
