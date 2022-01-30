@@ -17,8 +17,6 @@ var active_animation = false
 
 	
 func _physics_process(delta):  
-	print(!$CheckCeilingLeft.is_colliding(), !$CheckCeilingRight.is_colliding())
-	print(state)
 	match state:
 		States.FLOOR:
 			$CollisionShape2D.scale.y = 1.5
@@ -81,11 +79,10 @@ func move():
 # Checks if the player is trying to move left or right
 func move_left_or_right():
 	if Input.is_action_pressed("ui_right"):
-		
 		$Sprite.flip_h = true
 		velocity.x = SPEED
 	elif Input.is_action_pressed("ui_left"):
-		$Sprite.flip_h = false		
+		$Sprite.flip_h = false
 		velocity.x = -SPEED
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.15)
