@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/FinalSpaceshipLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/RotationPuzzle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Circuit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/DrawingMiniGame.tscn" type="PackedScene" id=8]
 
 [node name="Level" type="Node2D"]
 
@@ -17,21 +19,27 @@ position = Vector2( 280, 472 )
 [node name="Node2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1, 0 )
 
-[node name="Button" parent="." instance=ExtResource( 4 )]
-position = Vector2( 426, 477 )
-minigame = ExtResource( 3 )
-
-[node name="Button2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1280, 283 )
-minigame = ExtResource( 5 )
-
-[node name="Button3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1964, 796 )
-
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 button1 = NodePath("../Button")
 button2 = NodePath("../Button2")
 button3 = NodePath("../Button3")
+button4 = NodePath("../Button4")
 player = NodePath("../Player")
+
+[node name="Button" parent="." instance=ExtResource( 4 )]
+position = Vector2( 433, 479 )
+minigame = ExtResource( 3 )
+
+[node name="Button2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1372, -417 )
+minigame = ExtResource( 5 )
+
+[node name="Button3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1601, 1055 )
+minigame = ExtResource( 7 )
+
+[node name="Button4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2679, 480 )
+minigame = ExtResource( 8 )
 
 [connection signal="body_shape_exited" from="Button" to="Button" method="_on_Button_body_shape_exited"]
