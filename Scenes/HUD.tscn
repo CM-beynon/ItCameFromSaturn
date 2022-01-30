@@ -49,3 +49,12 @@ texture = ExtResource( 2 )
 [node name="Arrow3" type="Sprite" parent="."]
 position = Vector2( 589, 229 )
 texture = ExtResource( 2 )
+
+[node name="WinTime" type="Label" parent="."]
+margin_left = 969.0
+margin_top = 10.0
+margin_right = 1009.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
