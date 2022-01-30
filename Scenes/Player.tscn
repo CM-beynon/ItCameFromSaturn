@@ -156,4 +156,7 @@ stream = ExtResource( 3 )
 [node name="Rebuild" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
+[node name="Survive" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Survive" to="." method="_on_Survive_timeout"]

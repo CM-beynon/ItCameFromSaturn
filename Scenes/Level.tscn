@@ -16,6 +16,7 @@ position = Vector2( 280, 472 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+
 [node name="Survive" type="Timer" parent="Player"]
 
 [node name="Node2D" parent="." instance=ExtResource( 1 )]
@@ -44,5 +45,4 @@ minigame = ExtResource( 7 )
 position = Vector2( 2679, 480 )
 minigame = ExtResource( 8 )
 
-[connection signal="timeout" from="Player/Survive" to="Player" method="_on_Survive_timeout"]
 [connection signal="body_shape_exited" from="Button" to="Button" method="_on_Button_body_shape_exited"]
