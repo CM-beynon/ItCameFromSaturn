@@ -45,6 +45,7 @@ func _process(delta):
 	if button4:
 		$Label4.text = String(get_node(button4).DisplayValue)
 	_rotate_arrow()
+	$WinTime.text = String(playerNode.winTime)
 
 
 func _rotate_arrow():
