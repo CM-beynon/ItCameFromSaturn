@@ -56,6 +56,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Visibility Notifier" type="VisibilityNotifier2D" parent="."]
+visible = false
+
 [connection signal="body_entered" from="." to="." method="_on_Button_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Button_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
