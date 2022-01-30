@@ -13,12 +13,13 @@ signal pressed_button(new_scene)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var DisplayValue = 9
+# export (int) var maxDisplayValue 
+var DisplayValue = 30
 onready var timer = get_node("Timer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Display.text = String(DisplayValue)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -64,7 +65,7 @@ func _on_Timer_timeout():
 		if timer_cooldown > 0:
 			timer_cooldown -= 1
 		else:
-			DisplayValue = 9
+			DisplayValue = 30
 			$Display.show()
 			$Pressed.hide()
 			been_pressed = false
