@@ -17,6 +17,9 @@ var active_animation = false
 
 	
 func _physics_process(delta):  
+	print(state)
+	print($CheckCeilingLeft.is_colliding())
+	print($CheckCeilingRight.is_colliding())
 	match state:
 		States.FLOOR:
 			$CollisionShape2D.scale.y = 1.5
@@ -45,13 +48,13 @@ func _physics_process(delta):
 			move_left_or_right()
 			move()
 			
-			if is_on_floor() and !Input.is_action_pressed("ui_down"):
+			if is_on_floor() and !Input.is_action_pressed("ui_down") and !$CheckCeilingLeft.is_colliding() and !$CheckCeilingRight.is_colliding():
 				state = States.FLOOR
 			if is_on_floor() and Input.is_action_pressed("ui_down"):
 				state = States.CROUCH
 				
 		States.CROUCH:
-			$CollisionShape2D.scale.y = 1
+			$CollisionShape2D.scale.y = 0.99
 			$CollisionShape2D.position.y = 32
 			if velocity.length() > 1 and !active_animation:
 				$AnimationPlayer.play("CrouchWalk")
