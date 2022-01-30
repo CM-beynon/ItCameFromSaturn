@@ -14,6 +14,11 @@ enum States {FLOOR, AIR, CROUCH}
 var state = States.FLOOR
 var velocity = Vector2(0,0)
 var active_animation = false
+var winTime = 3
+
+func _ready():
+	$Survive.set_wait_time(1)
+	$Survive.start()
 
 	
 func _physics_process(delta):  
@@ -91,3 +96,12 @@ func move_left_or_right():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	active_animation = false
+
+func _on_Survive_timeout():
+	winTime -= 1
+	if winTime <= 0:
+		winState()
+		$Survive.stop()
+
+func winState():
+	print("Win!")
