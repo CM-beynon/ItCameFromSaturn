@@ -17,9 +17,7 @@ var active_animation = false
 
 	
 func _physics_process(delta):  
-	print(state)
-	print($CheckCeilingLeft.is_colliding())
-	print($CheckCeilingRight.is_colliding())
+	
 	match state:
 		States.FLOOR:
 			$CollisionShape2D.scale.y = 1.5
