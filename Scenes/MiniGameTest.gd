@@ -7,6 +7,7 @@ extends Node2D
 var numButtonPressed = 0
 const BUTTON_NUM = 5
 
+signal beat_minigame
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,5 +25,6 @@ func _buttonPressed(button_pressed):
 		if numButtonPressed  > 0:
 			numButtonPressed -= 1
 	if numButtonPressed == BUTTON_NUM:
+		emit_signal("beat_minigame")
 		print("you win the game :)")
 	print(numButtonPressed)

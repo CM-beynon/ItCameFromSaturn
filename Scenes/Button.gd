@@ -4,6 +4,8 @@ var can_press
 var been_pressed = false
 var timer_cooldown = 3
 
+signal pressed_button
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,7 +20,6 @@ func _ready():
 func _process(delta):
 	if can_press:
 		if Input.is_action_pressed("ui_accept"):
-			been_pressed = true;
 			pressed()
 	if been_pressed:
 		$Pressed.show()
@@ -36,8 +37,21 @@ func _on_Button_body_exited(body):
 	can_press = false
 	
 func pressed():
+	var _minigame = null
+	
+	been_pressed = true;
+	
+	_minigame = get_node("Minigame")
+	
+	if (_minigame):
+		$Timer.stop()
+		_minigame.show()
+		
+	
+	emit_signal("pressed_button")
 	$Display.hide()
 	been_pressed = true
+
 
 func _on_Timer_timeout():
 	if DisplayValue > 0:
@@ -50,6 +64,8 @@ func _on_Timer_timeout():
 		else:
 			DisplayValue = 9
 			$Display.show()
+			$Pressed.hide()
+			been_pressed = false
 			timer_cooldown = 3
 			
 
