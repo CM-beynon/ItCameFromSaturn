@@ -66,6 +66,7 @@ func _physics_process(delta):
 				state = States.AIR
 			if !$CheckCeilingLeft.is_colliding() and !$CheckCeilingRight.is_colliding() and !Input.is_action_pressed("ui_down"):
 				animate("Stand")
+				$Rebuild.play()
 				state = States.FLOOR
 
 func animate(animation):
