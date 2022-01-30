@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/HUD.gd" type="Script" id=1]
+[ext_resource path="res://ASSETS/Sprites/Arrow.png" type="Texture" id=2]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -36,3 +37,15 @@ margin_bottom = 54.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Arrow1" type="Sprite" parent="."]
+position = Vector2( 460, 227 )
+texture = ExtResource( 2 )
+
+[node name="Arrow2" type="Sprite" parent="."]
+position = Vector2( 521, 229 )
+texture = ExtResource( 2 )
+
+[node name="Arrow3" type="Sprite" parent="."]
+position = Vector2( 589, 229 )
+texture = ExtResource( 2 )

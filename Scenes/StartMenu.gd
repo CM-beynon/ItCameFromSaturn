@@ -25,7 +25,7 @@ func _on_StartButton_pressed():
 		$TitleAnimation.play_backwards("Fade")
 		$MusicAnimation.play("MusicFade")
 		yield(get_tree().create_timer(4), "timeout")
-		get_tree().change_scene("res://Scenes/NewTestLevel.tscn")
+		get_tree().change_scene("res://Scenes/FinalSpaceshipLevel.tscn")
 
 
 func _on_QuitButton_pressed():
