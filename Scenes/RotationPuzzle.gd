@@ -3,8 +3,16 @@ extends CanvasLayer
 var GRID_SIZE = 3
 var rng = RandomNumberGenerator.new()
 var WINDOW_HEIGHT = 600
+var directory = "res://ASSETS/Sprites/RotationPuzzle/"
+var imageName = "Godot"
 
 signal minigame_completed
+
+var file_suffixes = [
+	["TL", "TC", "TR"],
+	["CL", "C", "CR"],
+	["BL", "BC", "BR"]
+]
 
 var imageState = [
 	[0, 0, 0],
@@ -20,6 +28,9 @@ onready var imageNodes = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#print(load(directory + "tingle_TL.png").get_type())
+	#imageNodes[0][0].set_normal_texture(load(directory + "tingle_TL.png"))
+	loadPieces()
 	rng.randomize()
 	for row in range(GRID_SIZE):
 		for col in range(GRID_SIZE):
@@ -42,6 +53,12 @@ func _on_piece_pressed(row, col):
 	if isWinner():
 		winState()
 
+func loadPieces():
+	for row in range(GRID_SIZE):
+		for col in range(GRID_SIZE):
+			var curNode = imageNodes[row][col]
+			var texture = load(directory + imageName + "_" + file_suffixes[row][col] + ".png")
+			curNode.set_normal_texture(texture)
 
 func isWinner():
 	for row in range(GRID_SIZE):
