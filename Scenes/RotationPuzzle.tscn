@@ -11,7 +11,8 @@
 [ext_resource path="res://ASSETS/Sprites/RotationPuzzle/Godot_TL.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/RotationPuzzle.gd" type="Script" id=10]
 
-[node name="RotationPuzzle" type="Node2D"]
+[node name="RotationPuzzle" type="CanvasLayer"]
+pause_mode = 2
 script = ExtResource( 10 )
 
 [node name="TL" type="TextureButton" parent="."]
