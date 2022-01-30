@@ -15,6 +15,3 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _on_Button_pressed_button(new_scene):
-	$SceneChanger.change_scene(new_scene, 'fade')

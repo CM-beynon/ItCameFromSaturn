@@ -1,5 +1,6 @@
-extends Node2D
+extends CanvasLayer
 
+signal minigame_completed
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -23,5 +24,6 @@ func _buttonPressed(button_pressed):
 		if numButtonPressed  > 0:
 			numButtonPressed -= 1
 	if numButtonPressed == BUTTON_NUM:
+		emit_signal("minigame_completed")
 		print("you win the game :)")
 	print(numButtonPressed)

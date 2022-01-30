@@ -1,6 +1,7 @@
 extends Area2D
 
 export (PackedScene) var minigame
+var minigame_instance
 
 var can_press
 var been_pressed = false
@@ -41,12 +42,12 @@ func _on_Button_body_exited(body):
 	
 func pressed():
 	if (minigame):
-		# var game = minigame.instance()
-		# add_child(game)
-		emit_signal("pressed_button", minigame.get_resource_path())
+		minigame_instance = minigame.instance()
+		get_tree().paused = true
+		add_child(minigame_instance)
+		minigame_instance.connect("minigame_completed", self, "_on_minigame_completion")
 		$Timer.stop()
 	else:
-		emit_signal("pressed_button", null)
 		reset_button()
 
 func reset_button():
@@ -69,3 +70,8 @@ func _on_Timer_timeout():
 			been_pressed = false
 			timer_cooldown = 3
 			
+
+func _on_minigame_completion():
+	remove_child(minigame_instance)
+	get_tree().paused = false
+	reset_button()
