@@ -46,6 +46,7 @@ position = Vector2( 2679, 480 )
 minigame = ExtResource( 8 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 9 )
 autoplay = true
 
