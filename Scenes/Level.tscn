@@ -50,3 +50,5 @@ stream = ExtResource( 9 )
 autoplay = true
 
 [connection signal="body_shape_exited" from="Button" to="Button" method="_on_Button_body_shape_exited"]
+[connection signal="pressed_button" from="Button" to="Player" method="_on_Button_pressed_button"]
+[connection signal="timer_done" from="Button" to="Player" method="_on_Button_timer_done"]
