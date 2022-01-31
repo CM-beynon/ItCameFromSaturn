@@ -35,7 +35,6 @@ button1 = NodePath("../Node2D/Button")
 button2 = NodePath("../Node2D/Button2")
 button3 = NodePath("../Node2D/Button3")
 button4 = NodePath("../Node2D/Button4")
-
 player = NodePath("../Node2D")
 
 [connection signal="body_shape_exited" from="Node2D/Button" to="Node2D/Button" method="_on_Button_body_shape_exited"]
