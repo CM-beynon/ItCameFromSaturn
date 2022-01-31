@@ -33,3 +33,14 @@ func _on_QuitButton_pressed():
 		get_tree().quit()
 		pass # Replace with function body.
 
+
+
+func _on_CreditsButton_pressed():
+	if buttonEnable:
+		get_tree().change_scene("res://Scenes/Controls.tscn")
+	if buttonEnable:
+		get_tree().change_scene("res://Scenes/Controls.tscn")
+
+func _on_ControlButton_pressed():
+	if buttonEnable:
+		get_tree().change_scene("res://Scenes/Instructions.tscn")
