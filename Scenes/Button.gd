@@ -8,6 +8,7 @@ var been_pressed = false
 var timer_cooldown = 3
 
 signal pressed_button(new_scene)
+signal timer_done()
 
 
 # Declare member variables here. Examples:
@@ -47,6 +48,7 @@ func pressed():
 		get_tree().paused = true
 		add_child(minigame_instance)
 		minigame_instance.connect("minigame_completed", self, "_on_minigame_completion")
+		
 		$Timer.stop()
 	else:
 		reset_button()
@@ -59,8 +61,10 @@ func reset_button():
 func _on_Timer_timeout():
 	if DisplayValue > 0:
 		DisplayValue -= 1
+	else:
+		emit_signal("timer_done")
 	if !been_pressed:
-		$Display.show()	
+		$Display.show()
 	else:
 		if timer_cooldown > 0:
 			timer_cooldown -= 1

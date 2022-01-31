@@ -14,14 +14,19 @@ enum States {FLOOR, AIR, CROUCH}
 var state = States.FLOOR
 var velocity = Vector2(0,0)
 var active_animation = false
-var winTime = 30
+var winTime = 60
+var buttonsDone = 0
 
 func _ready():
 	$Survive.set_wait_time(1)
 	$Survive.start()
 
+
 	
-func _physics_process(delta):  
+func _physics_process(delta):
+	
+	if buttonsDone >= 3:
+		get_tree().change_scene("res://Scenes/Death Scene.tscn")
 	
 	match state:
 		States.FLOOR:
@@ -104,4 +109,12 @@ func _on_Survive_timeout():
 		$Survive.stop()
 
 func winState():
-	print("Win!")
+	get_tree().change_scene("res://Scenes/Win Screen.tscn")
+
+
+func _on_Button_timer_done():
+	buttonsDone += 1
+
+
+func _on_Button_pressed_button(new_scene):
+	buttonsDone -= 1
