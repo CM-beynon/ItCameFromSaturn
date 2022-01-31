@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://ASSETS/Sprites/startConcept.png" type="Texture" id=2]
 [ext_resource path="res://ASSETS/Sprites/quitConcept.png" type="Texture" id=3]
 [ext_resource path="res://ASSETS/Sprites/BackgroundConcept.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/Audio/ambience.mp3" type="AudioStream" id=5]
+[ext_resource path="res://ASSETS/Sprites/CreditConcept.png" type="Texture" id=6]
+[ext_resource path="res://ASSETS/Sprites/conctrolsConcept.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
@@ -100,6 +102,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ControlButton" type="Button" parent="."]
+margin_left = 663.0
+margin_top = 462.0
+margin_right = 920.0
+margin_bottom = 584.0
+
 [node name="StartButton" type="Button" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 156.0
@@ -112,10 +120,19 @@ __meta__ = {
 
 [node name="QuitButton" type="Button" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 406.0
-margin_top = 456.0
-margin_right = 604.0
-margin_bottom = 598.0
+margin_left = 404.0
+margin_top = 457.0
+margin_right = 602.0
+margin_bottom = 599.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="Button" parent="."]
+margin_left = 132.0
+margin_top = 453.0
+margin_right = 337.0
+margin_bottom = 591.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -133,6 +150,16 @@ texture = ExtResource( 2 )
 position = Vector2( 510, 524 )
 scale = Vector2( 0.164474, 0.164474 )
 texture = ExtResource( 3 )
+
+[node name="Credits" type="Sprite" parent="."]
+position = Vector2( 241, 527 )
+scale = Vector2( 0.436667, 0.436667 )
+texture = ExtResource( 6 )
+
+[node name="Controls" type="Sprite" parent="."]
+position = Vector2( 784, 523 )
+scale = Vector2( 0.363333, 0.363333 )
+texture = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -54.0
@@ -157,5 +184,7 @@ autoplay = true
 anims/MusicFade = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
+[connection signal="pressed" from="ControlButton" to="." method="_on_ControlButton_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
